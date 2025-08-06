@@ -1,50 +1,166 @@
-# Welcome to your Expo app 👋
+# 🤖 Chat App con Llama3 - React Native
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Una aplicación de chat móvil que se conecta directamente con **Ollama** para conversar con **Llama3** de forma local.
 
-## Get started
+## 📱 Vista Previa
 
-1. Install dependencies
+![ChatLlama](./exampleimg.jpg)
 
-   ```bash
-   npm install
-   ```
 
-2. Start the app
+## ✨ Características
 
-   ```bash
-   npx expo start
-   ```
+- **💬 Chat en tiempo real** con Llama3
+- **🎨 Interfaz moderna** estilo WhatsApp 
+- **⏰ Timestamps** en todos los mensajes
+- **🔄 Auto-scroll** a nuevos mensajes
+- **⚡ Loading states** y manejo de errores
+- **🧹 Limpiar historial** de chat
+- **📱 Responsive** para iOS y Android
 
-In the output, you'll find options to open the app in a
+## 🚀 Inicio Rápido
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
+### 1️⃣ Instalar Ollama
 
 ```bash
-npm run reset-project
+# macOS
+brew install ollama
+
+# Linux
+curl -fsSL https://ollama.ai/install.sh | sh
+
+# Windows
+# Descargar desde https://ollama.ai
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+### 2️⃣ Ejecutar Llama3
 
-## Learn more
+```bash
+ollama pull llama3
+ollama serve
+```
 
-To learn more about developing your project with Expo, look at the following resources:
+### 3️⃣ Clonar y Ejecutar
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+```bash
+git clone https://github.com/tu-usuario/chat-app-llama3.git
+cd chat-app-llama3
+npm install
 
-## Join the community
+# iOS
+npx react-native run-ios
 
-Join our community of developers creating universal apps.
+# Android  
+npx react-native run-android
+```
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+## 🔧 Configuración
+
+### Cambiar Modelo
+
+En `App.tsx`, línea 65:
+
+```typescript
+body: JSON.stringify({
+  model: 'llama3',           // 👈 Cambia aquí
+  messages: newMessages,
+  stream: false,
+}),
+```
+
+### Cambiar URL de Ollama
+
+Si Ollama está en otro servidor:
+
+```typescript
+const response = await fetch('http://TU_IP:11434/api/chat', {
+  // ...resto de configuración
+});
+```
+
+## 📋 Requisitos
+
+- **Node.js** 18+
+- **React Native CLI** o **Expo**
+- **Ollama** ejecutándose en puerto 11434
+- **iOS Simulator** / **Android Emulator**
+
+## 🛠️ Tecnologías
+
+- **React Native** - Framework móvil
+- **TypeScript** - Tipado estático
+- **Ollama API** - Backend de IA local
+- **Llama3** - Modelo de lenguaje
+
+## 📱 Plataformas Soportadas
+
+- ✅ iOS 11+
+- ✅ Android 7.0+ (API 24)
+
+## 🔍 Estructura del Proyecto
+
+```
+src/
+├── App.tsx              # Componente principal
+├── types/
+│   └── Message.ts       # Tipos TypeScript
+└── styles/
+    └── styles.ts        # Estilos globales
+```
+
+## 🐛 Solución de Problemas
+
+### Error de conexión
+
+```
+Error: Network request failed
+```
+
+**Solución:** Verifica que Ollama esté ejecutándose:
+
+```bash
+curl http://localhost:11434/api/tags
+```
+
+### El modelo no responde
+
+```
+Error del servidor: 404
+```
+
+**Solución:** Instala el modelo:
+
+```bash
+ollama pull llama3
+```
+
+### iOS no conecta a localhost
+
+En iOS Simulator, usa la IP de tu Mac:
+
+```typescript
+const response = await fetch('http://192.168.1.XXX:11434/api/chat', {
+```
+
+## 🚀 Próximas Características
+
+- [ ] 💾 Historial persistente
+- [ ] 🌙 Modo oscuro
+- [ ] 📸 Envío de imágenes
+- [ ] 🎛️ Configuración de parámetros
+- [ ] 📱 Push notifications
+
+## 📄 Licencia
+
+MIT License - ve el archivo [LICENSE](LICENSE) para más detalles.
+
+---
+
+<div align="center">
+
+**¿Te gusta el proyecto?** ⭐ Dale una estrella
+
+[Reportar Bug](https://github.com/tu-usuario/chat-app-llama3/issues) • 
+[Solicitar Feature](https://github.com/tu-usuario/chat-app-llama3/issues) • 
+[Contribuir](CONTRIBUTING.md)
+
+</div>
