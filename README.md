@@ -146,13 +146,3 @@ const response = await fetch('http://192.168.1.XXX:11434/api/chat', {
 MIT License - ve el archivo [LICENSE](LICENSE) para más detalles.
 
 ---
-
-<div align="center">
-
-**¿Te gusta el proyecto?** ⭐ Dale una estrella
-
-[Reportar Bug](https://github.com/tu-usuario/chat-app-llama3/issues) • 
-[Solicitar Feature](https://github.com/tu-usuario/chat-app-llama3/issues) • 
-[Contribuir](CONTRIBUTING.md)
-
-</div>
