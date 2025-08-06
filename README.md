@@ -141,14 +141,6 @@ En iOS Simulator, usa la IP de tu Mac:
 const response = await fetch('http://192.168.1.XXX:11434/api/chat', {
 ```
 
-## 🚀 Próximas Características
-
-- [ ] 💾 Historial persistente
-- [ ] 🌙 Modo oscuro
-- [ ] 📸 Envío de imágenes
-- [ ] 🎛️ Configuración de parámetros
-- [ ] 📱 Push notifications
-
 ## 📄 Licencia
 
 MIT License - ve el archivo [LICENSE](LICENSE) para más detalles.
